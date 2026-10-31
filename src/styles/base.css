@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@400..800&family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..900,0..100,0..1&family=Shantell+Sans:wght,BNCE,INFM@300..800,-100..100,0..100&display=swap');
+
+:root {
+  --color-toffee: #c2622b;
+  --color-toffee-deep: #a24a1a;
+  --color-toffee-ink: #8e3f15;
+  --color-honey: #f2be6b;
+  --color-honey-soft: #fbe3b4;
+  --color-cocoa: #2a170e;
+  --color-cocoa-soft: #5a3a28;
+  --color-milk: #fffdf8;
+  --color-sky: #bfddf5;
+  --color-sky-deep: #2f6e9e;
+  --color-blush: #f9cdbf;
+  --font-sans: 'Figtree', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Fraunces', ui-serif, Georgia, serif;
+  --font-hand: 'Shantell Sans', ui-rounded, 'Comic Sans MS', cursive;
+  --ease-pounce: cubic-bezier(.34, 1.56, .64, 1);
+  --ease-silk: cubic-bezier(.22, 1, .36, 1);
+  --ease-snap: cubic-bezier(.7, 0, .2, 1);
+  --header-h: 4.75rem;
+  --gutter: clamp(1rem, 4vw, 3.5rem);
+}
+@media (max-width: 767px) { :root { --header-h: 4rem; } }
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+body {
+  background: var(--color-milk); color: var(--color-cocoa); font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased; font-size: 1.0625rem; line-height: 1.6; overflow-x: clip;
+}
+a { color: inherit; text-decoration: none; }
+ul, ol { list-style: none; }
+img, svg, video { display: block; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+main { position: relative; padding-top: var(--header-h); }
+
+/* type scale */
+.font-plush { text-wrap: balance; font-family: var(--font-display); font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144; letter-spacing: -.025em; font-weight: 800; line-height: .92; }
+.font-plush-text { font-family: var(--font-display); font-variation-settings: "SOFT" 100, "WONK" 0, "opsz" 36; }
+.font-scrawl { font-family: var(--font-hand); font-variation-settings: "INFM" 60, "BNCE" 30; letter-spacing: 0; font-weight: 500; }
+.text-huge { font-size: clamp(2.6rem, 6.4vw, 6.25rem); }
+.text-big { font-size: clamp(2rem, 4.2vw, 4rem); }
+.text-lede { font-size: clamp(1.125rem, 1.4vw, 1.375rem); line-height: 1.5; }
+.gutter { padding-inline: var(--gutter); }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* buttons */
+.btn {
+  min-height: 3.25rem; border-radius: 999px; display: inline-flex; justify-content: center; align-items: center; gap: .6rem;
+  padding: .85rem 1.6rem; font-size: 1.0625rem; font-weight: 650; line-height: 1.1; white-space: nowrap;
+  transition: transform .35s var(--ease-pounce), background-color .25s ease, box-shadow .35s var(--ease-silk);
+}
+.btn:active { transform: scale(.96); }
+.btn-primary { background: var(--color-toffee-deep); color: var(--color-milk); box-shadow: 0 .5rem 0 -.15rem var(--color-cocoa); }
+.btn-primary:hover { box-shadow: 0 .7rem 0 -.15rem var(--color-cocoa); transform: translateY(-2px) rotate(-1deg); }
+.btn-ghost { color: var(--color-cocoa); border: 2px solid var(--color-cocoa); background: none; }
+.btn-ghost:hover { background: var(--color-cocoa); color: var(--color-milk); }
+.btn-whatsapp { color: #fff; background: #1f7a4d; box-shadow: 0 .5rem 0 -.15rem var(--color-cocoa); }
+.btn-whatsapp:hover { transform: translateY(-2px) rotate(1deg); }
+
+/* each section gets its own sky slice via these custom properties */
+.tp-scene {
+  --ink: var(--color-cocoa); --ink-soft: var(--color-cocoa-soft);
+  position: relative; color: var(--ink);
+  background: linear-gradient(to bottom, var(--sky-top), var(--sky-bottom));
+}
+.tp-scene[data-tone=dark] { --ink: var(--color-milk); --ink-soft: color-mix(in oklab, var(--color-milk) 80%, transparent); }
+.tp-scene[data-tone=dark] .btn-ghost { border-color: var(--color-milk); color: var(--color-milk); }
+.tp-scene[data-tone=dark] .btn-ghost:hover { background: var(--color-milk); color: var(--color-cocoa); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
