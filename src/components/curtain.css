@@ -1,0 +1,148 @@
+.tp-curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  pointer-events: none;
+  visibility: hidden;
+  overflow: clip;
+}
+
+.tp-curtain:is([data-state=intro], [data-state=covering], [data-state=covered], [data-state=lifting]) {
+  visibility: visible;
+}
+
+.tp-curtain:is([data-state=covering], [data-state=covered]) {
+  pointer-events: auto;
+  cursor: progress;
+}
+
+.tp-curtain__blanket {
+  background:
+    repeating-linear-gradient(45deg, transparent 0 46px, #2a170e12 46px 48px),
+    repeating-linear-gradient(-45deg, transparent 0 46px, #2a170e12 46px 48px),
+    radial-gradient(circle at 50% 46%, var(--color-milk) 0, transparent 60%),
+    var(--color-honey-soft);
+  will-change: transform;
+  place-items: center;
+  display: grid;
+  position: absolute;
+  inset: 0;
+  transform: translateY(0);
+}
+
+.tp-curtain__edge {
+  display: block;
+  position: absolute;
+  left: 0;
+}
+.tp-curtain__edge--top {
+  top: -39px;
+}
+.tp-curtain__edge--bottom {
+  bottom: -39px;
+  scale: 1 -1;
+}
+
+.tp-curtain[data-state=intro] .tp-curtain__blanket {
+  transform: translateY(0);
+}
+
+.tp-curtain[data-state=covering] .tp-curtain__blanket {
+  animation: tp-curtain-cover 0.38s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.tp-curtain[data-state=lifting] .tp-curtain__blanket {
+  animation: tp-curtain-lift 0.46s cubic-bezier(0.65, 0, 0.3, 1) both;
+}
+
+@keyframes tp-curtain-cover {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes tp-curtain-lift {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+.tp-curtain__stage {
+  width: min(38rem, 86vw);
+  height: clamp(9rem, 24vw, 12rem);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.tp-curtain__runner {
+  width: clamp(7.5rem, 16vw, 9.5rem);
+  aspect-ratio: 300/240;
+  position: absolute;
+  bottom: 2.2rem;
+  left: 10%;
+  animation: tp-curtain-runner 1.2s cubic-bezier(0.3, 0.1, 0.4, 1) infinite alternate;
+}
+
+@keyframes tp-curtain-runner {
+  0% {
+    transform: translateX(0) scale(1);
+  }
+  50% {
+    transform: translateX(110px) translateY(-6px) scale(1.02);
+  }
+  100% {
+    transform: translateX(220px) scale(1);
+  }
+}
+
+.tp-curtain__prints {
+  width: 75%;
+  height: 2rem;
+  position: absolute;
+  bottom: 2rem;
+  left: 12%;
+  pointer-events: none;
+}
+
+.tp-curtain__print {
+  position: absolute;
+  color: var(--color-toffee);
+  opacity: 0;
+  animation: tp-curtain-step 1.2s ease-in-out infinite;
+}
+
+@keyframes tp-curtain-step {
+  0%, 10% {
+    opacity: 0;
+    scale: 0.7;
+  }
+  25% {
+    opacity: 0.6;
+    scale: 1;
+  }
+  75% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.tp-curtain__note {
+  white-space: nowrap;
+  color: var(--color-toffee-ink);
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  position: absolute;
+  bottom: -0.6rem;
+  left: 50%;
+  translate: -50%;
+}
