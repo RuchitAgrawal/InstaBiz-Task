@@ -1,0 +1,58 @@
+.tp-header { position: fixed; inset: 0 0 auto; z-index: 50; transition: transform .5s var(--ease-silk); }
+.tp-header[data-hidden=true] { transform: translateY(-120%); }
+.tp-header::before { content: ''; position: absolute; inset: 0; background: var(--color-milk); opacity: 0; transition: opacity .35s; }
+.tp-header__hem { position: absolute; top: calc(100% - 1px); left: 0; opacity: 0; pointer-events: none; filter: drop-shadow(0 4px 4px #2a170e14); transition: opacity .35s; }
+.tp-header__hem-fill { fill: var(--color-milk); }
+.tp-header__hem-line { fill: none; stroke: #2a170e24; stroke-width: 1.5px; }
+.tp-header[data-scrolled=true]::before, .tp-header[data-scrolled=true] .tp-header__hem { opacity: 1; }
+.tp-header__bar { position: relative; max-width: 110rem; height: var(--header-h); margin-inline: auto; display: flex; align-items: center; gap: 1.5rem; }
+.tp-header__brand { flex: none; display: flex; align-items: center; gap: .75rem; border-radius: 999px; }
+.tp-header__logo-wrap {
+  width: 2.8rem; height: 2.8rem; border-radius: 50%; display: grid; place-items: center;
+  overflow: hidden; box-shadow: 0 2px 6px #2a170e26;
+  transition: rotate .6s var(--ease-pounce);
+}
+.tp-header__logo-img { width: 100%; height: 100%; object-fit: cover; }
+.tp-header__brand:hover .tp-header__logo-wrap { rotate: -8deg; }
+.tp-header__name { font-size: 1.5rem; line-height: 1; color: var(--color-cocoa); }
+.tp-header__nav { flex: 1; justify-content: center; display: none; }
+.tp-header__nav ul { display: flex; align-items: center; gap: clamp(1.25rem, 2.3vw, 2.4rem); }
+.tp-header__end { margin-left: auto; display: flex; align-items: center; gap: .6rem; }
+.tp-header__wa { min-height: 2.75rem !important; padding: .6rem 1.35rem !important; font-size: .95rem !important; display: none !important; }
+
+/* hamburger button */
+.tp-header__burger { display: flex; flex-direction: column; justify-content: center; gap: 5px; width: 2.4rem; height: 2.4rem; padding: .3rem; border-radius: .4rem; flex: none; }
+.tp-header__burger span { display: block; height: 2px; background: var(--color-cocoa); border-radius: 2px; transition: transform .3s var(--ease-silk), opacity .2s; }
+.tp-header__burger[aria-expanded=true] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.tp-header__burger[aria-expanded=true] span:nth-child(2) { opacity: 0; }
+.tp-header__burger[aria-expanded=true] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* mobile drawer */
+.tp-drawer { position: fixed; inset: var(--header-h) 0 0; background: var(--color-milk); z-index: 49; padding: 1.5rem var(--gutter) 2rem; display: flex; flex-direction: column; gap: 2rem; transform: translateX(100%); transition: transform .38s var(--ease-silk); overflow-y: auto; }
+.tp-drawer[data-open=true] { transform: translateX(0); }
+.tp-drawer ul { display: flex; flex-direction: column; gap: .25rem; }
+.tp-drawer__link { display: block; padding: .75rem 0; font-size: clamp(1.6rem, 5vw, 2rem); line-height: 1; color: var(--color-cocoa); border-bottom: 2px solid var(--color-honey-soft); }
+.tp-drawer__link[data-active=true] { color: var(--color-toffee-deep); }
+.tp-drawer__wa { align-self: flex-start; }
+.tp-drawer__backdrop { position: fixed; inset: var(--header-h) 0 0; background: #2a170e40; z-index: 48; }
+
+@media (min-width: 768px) {
+  .tp-header__logo-wrap { width: 3.1rem; height: 3.1rem; }
+  .tp-header__wa { display: inline-flex !important; }
+}
+@media (min-width: 1024px) {
+  .tp-header__nav { display: flex; }
+  .tp-header__burger { display: none; }
+  .tp-drawer, .tp-drawer__backdrop { display: none; }
+}
+
+.tp-nav-link { position: relative; display: inline-flex; align-items: center; padding: .55rem .1rem; white-space: nowrap; color: var(--color-cocoa); font-size: 1rem; font-weight: 620; transition: color .25s; }
+.tp-nav-link:hover { color: var(--color-toffee-ink); }
+.tp-nav-link[data-active=true] { color: var(--color-toffee-deep); }
+.tp-nav-link__paw {
+  position: absolute; bottom: -.45rem; left: 50%; translate: -50%; rotate: -10deg; scale: .4;
+  width: .8rem; height: .8rem; color: var(--color-toffee); opacity: 0; pointer-events: none;
+  transition: opacity .25s ease, scale .45s var(--ease-pounce);
+}
+.tp-nav-link:hover .tp-nav-link__paw { opacity: .45; scale: 1; }
+.tp-nav-link[data-active=true] .tp-nav-link__paw { opacity: 1; scale: 1; }
