@@ -1,0 +1,49 @@
+.tp-footer{--night:#24130b;background:var(--night);position:relative;color:var(--color-milk);padding-bottom:calc(var(--bar-h,0px) + 2rem)}
+.tp-footer__hill{width:100%;height:clamp(2.5rem,5vw,5rem);fill:var(--night);display:block;position:absolute;bottom:calc(100% - 1px);left:0}
+.tp-footer__sky{pointer-events:none;position:absolute;inset-inline:0;top:1.5rem;height:16rem;overflow:hidden}
+.tp-footer__sky .tp-twinkle{position:absolute;color:var(--color-honey)}
+.tp-moon{aspect-ratio:1;width:clamp(2.6rem,4vw,3.6rem);box-shadow:inset -.85rem .25rem 0 0 var(--color-honey-soft);filter:drop-shadow(0 0 18px #fbe3b459);border-radius:50%;position:absolute;top:10%;right:9%;rotate:-18deg}
+
+.tp-footer__grid{position:relative;margin-inline:auto;display:grid;max-width:110rem;gap:3rem;padding-top:5rem}
+.tp-footer__title{color:var(--color-honey-soft);margin:0}
+.tp-footer__blurb{margin:1.25rem 0 0;max-width:28rem;color:color-mix(in oklab,var(--color-milk) 80%,transparent)}
+.tp-footer__basket{order:9999}
+.tp-footer__h{font-size:1.125rem;line-height:1.75rem;color:var(--color-honey);margin:0}
+.tp-footer__links{list-style:none;padding:0;margin:1rem 0 0;display:grid;gap:.625rem}
+.tp-footer__links--soft{color:color-mix(in oklab,var(--color-milk) 90%,transparent)}
+.tp-footer__link{font-weight:600;color:color-mix(in oklab,var(--color-milk) 90%,transparent);text-underline-offset:4px;text-decoration:none}
+.tp-footer__link:hover{color:var(--color-honey);text-decoration:underline}
+.tp-footer__wa{font-weight:600}
+.tp-footer__mail{word-break:break-all}
+.tp-footer__links a{color:inherit}
+.tp-footer__links--soft a{text-decoration:none}
+.tp-footer__links--soft a:hover,.tp-footer__pill:hover{color:var(--color-honey)}
+.tp-footer__social{list-style:none;padding:0;margin:1.5rem 0 0;display:flex;flex-wrap:wrap;gap:.75rem}
+.tp-footer__pill{display:inline-flex;height:2.75rem;align-items:center;border-radius:999px;border:2px solid color-mix(in oklab,var(--color-milk) 30%,transparent);padding-inline:1rem;font-size:.875rem;line-height:1.25rem;font-weight:600;color:inherit;text-decoration:none}
+.tp-footer__pill:hover{border-color:var(--color-honey)}
+.tp-footer__bar{position:relative;margin:4rem auto 0;display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;gap:1rem;max-width:110rem;border-top:1px solid color-mix(in oklab,var(--color-milk) 15%,transparent);padding-top:1.5rem;font-size:.875rem;line-height:1.25rem;color:color-mix(in oklab,var(--color-milk) 60%,transparent)}
+.tp-footer__mark{display:flex;align-items:center;gap:.75rem}
+.tp-footer__logo-img{width:2.2rem;height:2.2rem;border-radius:50%;object-fit:cover;border:1.5px solid var(--color-honey)}
+.tp-footer__tag{font-size:1rem;line-height:1.5rem;color:color-mix(in oklab,var(--color-honey) 80%,transparent)}
+@media (min-width:768px){
+  .tp-footer{padding-bottom:2.5rem}
+  .tp-footer__grid{grid-template-columns:repeat(12,minmax(0,1fr));column-gap:3rem;row-gap:1.5rem;padding-top:7rem}
+  .tp-footer__hello{grid-column:span 5/span 5}
+  .tp-footer__basket{order:0;grid-column:1/span 5;grid-row-start:2}
+  .tp-footer__explore{grid-column:7/span 3;grid-row:1/span 2}
+  .tp-footer__contact{grid-column:span 3/span 3;grid-row:1/span 2}
+  .tp-footer__bar{flex-direction:row;align-items:center}
+}
+
+.tp-basket{--bw:clamp(14rem,24vw,19rem);width:var(--bw);aspect-ratio:300/240;margin-left:calc(var(--bw)*-.36);position:relative}
+.tp-basket>*{width:100%;height:100%;position:absolute;inset:0;overflow:visible}
+.tp-basket>svg{pointer-events:none}
+.tp-basket__back{z-index:1}
+.tp-basket__pup{z-index:10}
+.tp-basket__front{z-index:25}
+.tp-basket__hollow{fill:#5d3519;stroke:var(--color-cocoa);stroke-width:3px}
+.tp-basket__rim-line{fill:none;stroke:var(--color-cocoa);stroke-width:13px;stroke-linecap:round}
+.tp-basket__rim{fill:none;stroke:#e8b46c;stroke-width:7.5px;stroke-linecap:round}
+.tp-basket__body{fill:#d9a05a;stroke:var(--color-cocoa);stroke-width:3px;stroke-linejoin:round}
+.tp-basket__weave{fill:none;stroke:#2a170e47;stroke-width:2.6px;stroke-linecap:round}
+.tp-basket__weave--stakes{stroke:#2a170e26}
