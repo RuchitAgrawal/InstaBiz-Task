@@ -11,7 +11,7 @@ const ENTRIES = [
     icon: <><path d="M8 34l40-16 6 4-30 18-8-2z M24 40l4 8 5-3-2-9" {...SW} /><path d="M8 50c10 4 20 4 30 0" {...SW} strokeDasharray="2 7" /></> },
   { shape: 'oval', ink: '#5a3a28', tilt: -4, title: 'Help any hour', text: 'Real people on hand any hour, from your first questions to the first vet visit.',
     icon: <><path d="M10 14h44v28H30l-12 10v-10h-8z" {...SW} /><path d="M22 28h0M32 28h0M42 28h0" {...SW} strokeWidth={5} /></> },
-  { shape: 'scallop', ink: '#c2622b', tilt: 7, title: 'Loved in many countries', text: 'Pawhaven puppies have settled into happy homes on several continents.',
+  { shape: 'scallop', ink: '#c2622b', tilt: 7, title: 'Loved in many countries', text: 'TeddyPups puppies have settled into happy homes on several continents.',
     icon: <><circle cx="32" cy="32" r="22" {...SW} /><path d="M10 32h44M32 10c-8 8-8 36 0 44M32 10c8 8 8 36 0 44" {...SW} /></> },
 ]
 

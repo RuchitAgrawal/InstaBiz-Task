@@ -61,3 +61,4 @@ export default function PawTrail() {
 
   return <div ref={containerRef} className="tp-paw-trail" aria-hidden="true" />
 }
+

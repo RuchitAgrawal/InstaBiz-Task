@@ -1,10 +1,9 @@
 .tp-header { position: fixed; inset: 0 0 auto; z-index: 50; transition: transform .5s var(--ease-silk); }
 .tp-header[data-hidden=true] { transform: translateY(-120%); }
-.tp-header::before { content: ''; position: absolute; inset: 0; background: var(--color-milk); opacity: 0; transition: opacity .35s; }
-.tp-header__hem { position: absolute; top: calc(100% - 1px); left: 0; opacity: 0; pointer-events: none; filter: drop-shadow(0 4px 4px #2a170e14); transition: opacity .35s; }
-.tp-header__hem-fill { fill: var(--color-milk); }
-.tp-header__hem-line { fill: none; stroke: #2a170e24; stroke-width: 1.5px; }
-.tp-header[data-scrolled=true]::before, .tp-header[data-scrolled=true] .tp-header__hem { opacity: 1; }
+.tp-header::before { content: ''; position: absolute; inset: 0; background: #faf4ea; opacity: 1; border-bottom: 1.5px solid #2a170e18; box-shadow: 0 2px 8px #2a170e0a; }
+.tp-header__hem { position: absolute; top: calc(100% - 1px); left: 0; opacity: 1; pointer-events: none; filter: drop-shadow(0 4px 4px #2a170e10); }
+.tp-header__hem-fill { fill: #faf4ea; }
+.tp-header__hem-line { fill: none; stroke: #2a170e1a; stroke-width: 1.5px; }
 .tp-header__bar { position: relative; max-width: 110rem; height: var(--header-h); margin-inline: auto; display: flex; align-items: center; gap: 1.5rem; }
 .tp-header__brand { flex: none; display: flex; align-items: center; gap: .75rem; border-radius: 999px; }
 .tp-header__logo-wrap {
