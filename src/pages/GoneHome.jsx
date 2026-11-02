@@ -1,40 +1,66 @@
+import { Link } from 'react-router-dom'
 import { goneHomePups } from '../data'
-import { Photo } from '../Art'
-import { useDogPhotos } from '../sections/Paths'
+import { Mascot } from '../Art'
 import './pages.css'
 
-const BREEDS = ['poodle/toy', 'pomeranian', 'maltese', 'havanese', 'shihtzu', 'poodle/toy']
-
 export default function GoneHome() {
-  const photos = useDogPhotos(BREEDS)
-
   return (
-    <div className="tp-subpage">
-      <div className="gutter tp-subpage__head">
-        <h1 className="font-plush text-huge tp-subpage__title">
-          Gone home
-          <svg viewBox="0 0 48 44" width="36" height="36" style={{ display: 'inline-block', marginLeft: '0.6rem', verticalAlign: '-0.15em', color: 'var(--color-toffee)' }} aria-hidden="true">
-            <path d="M24 40C10 30 4 22 4 14.5 4 8.7 8.6 4 14.3 4c4.1 0 7.6 2.4 9.7 6 2.1-3.6 5.6-6 9.7-6C39.4 4 44 8.7 44 14.5 44 22 38 30 24 40z" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </h1>
-        <p className="text-lede tp-subpage__lede">
-          A celebratory gallery of TeddyPups companions that have safely graduated to their forever homes across the UAE and internationally.
-        </p>
+    <div className="tp-subpage tp-subpage--sketch">
+      <div className="gutter tp-sketch-header">
+        <div>
+          <span className="font-scrawl tp-sketch-kicker">happy beginnings</span>
+          <h1 className="font-plush tp-sketch-title">
+            Puppies who've gone home
+            <svg aria-hidden="true" viewBox="0 0 600 24" preserveAspectRatio="none" className="tp-sketch-underline">
+              <path d="M4 16 C 140 6, 320 22, 592 10" fill="none" stroke="currentColor" strokeWidth="5" strokeLinecap="round" />
+            </svg>
+          </h1>
+          <p className="tp-sketch-lede">
+            A celebratory gallery of TeddyPups companions that have safely graduated to their forever homes across the UAE and internationally.
+          </p>
+        </div>
+
+        <div className="tp-sketch-medallion">
+          <div className="tp-medallion-circle">
+            <Mascot pose="sit" />
+          </div>
+          <span className="font-scrawl tp-medallion-label">cherished alumni</span>
+        </div>
       </div>
 
-      <div className="gutter tp-gone-grid">
-        {goneHomePups.map((p, i) => (
-          <article key={p.name} className="tp-gone-card">
-            <div className="tp-gone-card__stage">
-              <Photo src={photos[i % photos.length]} label={p.name} />
-            </div>
-            <div className="tp-gone-card__body">
-              <h2 className="font-plush tp-gone-card__name">{p.name}</h2>
-              <p className="tp-gone-card__family">{p.family}</p>
-              <p className="tp-gone-card__date">{p.breed} • Adopted {p.date}</p>
-            </div>
-          </article>
-        ))}
+      <div className="gutter" style={{ maxWidth: '110rem', margin: '3.5rem auto 0' }}>
+        <div className="tp-puppies-grid">
+          {goneHomePups.map((p, i) => (
+            <article key={p.name} className="tp-pup-item">
+              <div className="tp-pup-avatar-wrap">
+                <span className={i % 2 === 0 ? 'tp-crescent-tan' : 'tp-crescent-blue'} aria-hidden="true" />
+                <div className="tp-pup-photo-disc">
+                  <img src={p.img} alt={p.name} loading="lazy" />
+                </div>
+                <span className="tp-badge-available" style={{ background: '#fbf7ef', color: '#8e3f15' }}>
+                  gone home ♥
+                </span>
+              </div>
+
+              <h2 className="font-plush tp-pup-name">{p.name}</h2>
+              <p className="tp-pup-subtitle" style={{ fontWeight: 650, color: '#8d5733' }}>
+                {p.family}
+              </p>
+              <p style={{ fontSize: '0.85rem', color: '#5a3a28', marginTop: '0.2rem' }}>
+                {p.breed} · {p.date}
+              </p>
+            </article>
+          ))}
+        </div>
+
+        <div style={{ marginTop: '5rem', textAlign: 'center' }}>
+          <p className="font-scrawl" style={{ fontSize: '1.5rem', color: '#5a3a28', marginBottom: '1.25rem' }}>
+            Looking for your own teacup companion?
+          </p>
+          <Link to="/puppies" className="btn btn-primary" style={{ padding: '0.9rem 2.2rem', fontSize: '1.05rem' }}>
+            Meet our available puppies
+          </Link>
+        </div>
       </div>
     </div>
   )
