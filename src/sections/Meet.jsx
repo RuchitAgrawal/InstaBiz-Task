@@ -130,7 +130,7 @@ export default function Meet() {
           <div ref={hall} className="tp-meet__hall">
             <ol ref={track} className="tp-meet__track" data-treadmill="true" aria-label="Puppies looking for a family">
               {doors.map((p, i) => (
-                <li key={i} className="tp-door" data-open="true">
+                <li key={i} className="tp-door" data-open="false">
                   <a className="tp-door__link" style={{ '--door': p.door }} href="#puppies">
                     <span className="tp-door__plate">
                       <span className="font-plush tp-door__name">{p.name}</span>
