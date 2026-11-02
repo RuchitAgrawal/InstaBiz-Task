@@ -44,7 +44,7 @@
 .tp-door__frame:after{content:"";border:3px solid var(--color-cocoa);background:#dc9a52;border-radius:.35rem;height:.6rem;position:absolute;bottom:-.6rem;left:-.55rem;right:-.55rem}
 
 @supports (animation-timeline:view()){
-  .tp-door__leaf{animation:linear both tp-door-open;animation-timeline:view();animation-range:entry 55% cover 48%}
+  .tp-door__leaf{animation:linear alternate tp-door-open;animation-timeline:view();animation-range:entry 40% cover 55%}
   .tp-meet[data-pinned] .tp-door__leaf{animation:none}
 }
 @keyframes tp-door-open{0%{transform:rotateY(0)}to{transform:rotateY(var(--door-open))}}

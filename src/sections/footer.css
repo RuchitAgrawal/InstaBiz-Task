@@ -49,3 +49,5 @@
 .tp-basket__body{fill:#d9a05a;stroke:var(--color-cocoa);stroke-width:3px;stroke-linejoin:round}
 .tp-basket__weave{fill:none;stroke:#2a170e47;stroke-width:2.6px;stroke-linecap:round}
 .tp-basket__weave--stakes{stroke:#2a170e26}
+.tp-basket__pup .pup-buddy{visibility:visible!important;width:100%;height:100%}
+.tp-basket__pup{overflow:visible}
