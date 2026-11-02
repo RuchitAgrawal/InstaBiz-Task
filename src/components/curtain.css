@@ -74,75 +74,37 @@
 }
 
 .tp-curtain__stage {
-  width: min(38rem, 86vw);
-  height: clamp(9rem, 24vw, 12rem);
-  position: relative;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  position: relative;
 }
 
 .tp-curtain__runner {
-  width: clamp(7.5rem, 16vw, 9.5rem);
+  width: clamp(5.5rem, 12vw, 7.5rem);
   aspect-ratio: 300/240;
-  position: absolute;
-  bottom: 2.2rem;
-  left: 10%;
-  animation: tp-curtain-runner 1.2s cubic-bezier(0.3, 0.1, 0.4, 1) infinite alternate;
+  position: relative;
+  animation: tp-curtain-runner 1.4s ease-in-out infinite alternate;
 }
 
 @keyframes tp-curtain-runner {
   0% {
-    transform: translateX(0) scale(1);
+    transform: translateY(0) scale(1);
   }
   50% {
-    transform: translateX(110px) translateY(-6px) scale(1.02);
+    transform: translateY(-8px) scale(1.02);
   }
   100% {
-    transform: translateX(220px) scale(1);
-  }
-}
-
-.tp-curtain__prints {
-  width: 75%;
-  height: 2rem;
-  position: absolute;
-  bottom: 2rem;
-  left: 12%;
-  pointer-events: none;
-}
-
-.tp-curtain__print {
-  position: absolute;
-  color: var(--color-toffee);
-  opacity: 0;
-  animation: tp-curtain-step 1.2s ease-in-out infinite;
-}
-
-@keyframes tp-curtain-step {
-  0%, 10% {
-    opacity: 0;
-    scale: 0.7;
-  }
-  25% {
-    opacity: 0.6;
-    scale: 1;
-  }
-  75% {
-    opacity: 0.3;
-  }
-  100% {
-    opacity: 0;
+    transform: translateY(0) scale(1);
   }
 }
 
 .tp-curtain__note {
   white-space: nowrap;
-  color: var(--color-toffee-ink);
-  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
-  position: absolute;
-  bottom: -0.6rem;
-  left: 50%;
-  translate: -50%;
+  color: #723e1d;
+  font-size: clamp(1.4rem, 2.8vw, 2rem);
+  margin: 0;
+  line-height: 1;
 }
+

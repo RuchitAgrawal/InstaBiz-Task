@@ -11,6 +11,7 @@ const EXPLORE = [
   { label: 'Gone home', path: '/gone-home' },
   { label: 'Happy families', path: '/happy-families' },
   { label: 'How it works', path: '/how-it-works' },
+  { label: 'Delivery & collection', path: '/how-it-works#delivery' },
   { label: 'FAQ', path: '/faq' },
   { label: 'Visit & contact', path: '/contact' },
 ]
@@ -39,6 +40,7 @@ export default function Footer() {
         </div>
         <div className="tp-footer__basket">
           <div className="tp-basket">
+            <div className="tp-basket__bubble font-scrawl" aria-hidden="true">hm?</div>
             <svg aria-hidden="true" viewBox="0 0 300 240" className="tp-basket__back">
               <ellipse cx="212" cy="145" rx="96" ry="12" className="tp-basket__hollow" />
               <path d={RIM} className="tp-basket__rim-line" />

@@ -1,54 +1,73 @@
-import { polaroids, quotes } from '../data'
-import { Photo } from '../Art'
-import { useDogPhotos } from '../sections/Paths'
+import { polaroidMoments } from '../data'
+import { Mascot } from '../Art'
 import './pages.css'
-import '../sections/dusk.css'
-
-const BREEDS = ['poodle/toy', 'maltese', 'pomeranian', 'shihtzu', 'havanese', 'spaniel/cocker', 'maltese', 'poodle/toy']
-const TILT = [-2.2, 1.6, -0.9, 2.4, -1.5, 0.8, -2.6, 1.2]
-const TAPE = ['#f6d79a', '#f9cdbf', '#cfe5f6', '#f6d79a', '#e9dcc4', '#f6d79a', '#f9cdbf', '#cfe5f6']
-const TAPES = [['center'], ['left'], ['right'], ['tl', 'tr'], ['center'], ['right'], ['left'], ['center']]
 
 export default function HappyFamilies() {
-  const photos = useDogPhotos(BREEDS)
-
   return (
-    <div className="tp-subpage">
-      <div className="gutter tp-subpage__head">
-        <h1 className="font-plush text-huge tp-subpage__title">
-          Happy families
-          <svg viewBox="0 0 48 44" width="36" height="36" style={{ display: 'inline-block', marginLeft: '0.6rem', verticalAlign: '-0.15em', color: 'var(--color-toffee)' }} aria-hidden="true">
-            <path d="M24 40C10 30 4 22 4 14.5 4 8.7 8.6 4 14.3 4c4.1 0 7.6 2.4 9.7 6 2.1-3.6 5.6-6 9.7-6C39.4 4 44 8.7 44 14.5 44 22 38 30 24 40z" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </h1>
-        <p className="text-lede tp-subpage__lede">
-          Over 500+ miniature puppies have joined loving families across Dubai, Abu Dhabi, and worldwide. Here are a few favorite moments shared by their happy owners.
-        </p>
+    <div className="tp-subpage tp-subpage--families">
+      <div className="gutter tp-families-head">
+        <div>
+          <span className="font-scrawl tp-families-kicker">our wall of happy endings</span>
+          <h1 className="font-plush tp-families-title">
+            Happy families
+            <svg aria-hidden="true" viewBox="0 0 32 30" className="tp-heart-outline">
+              <path
+                d="M16 27 C 6 18, 2 12, 2 7 A 6 6 0 0 1 14 3 L 16 5 L 18 3 A 6 6 0 0 1 30 7 C 30 12, 26 18, 16 27 Z"
+                strokeWidth="2.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </h1>
+          <p className="tp-families-lede">
+            Nothing makes us happier than seeing our puppies in loving homes! Here are some beautiful moments shared by our amazing clients after welcoming their furry friends.
+          </p>
+          <p className="font-scrawl tp-families-stat">64 moments and counting</p>
+        </div>
+
+        {/* Taped Lined Note on Right */}
+        <div className="tp-taped-note">
+          <span className="tp-note-tape" aria-hidden="true" />
+          <p className="tp-note-text">
+            "TeddyPups truly made our dream a reality. They supported us at every step of the import journey. Our Maltipoo arrived healthy, cheerful, and absolutely perfect. Having 24/7 support throughout the process gave us complete peace of mind."
+          </p>
+          <p className="font-scrawl tp-note-sign">Sarah M., Dubai, UAE</p>
+        </div>
       </div>
 
-      <div className="gutter" style={{ maxWidth: '64rem', margin: '3rem auto 0', display: 'grid', gap: '1.5rem' }}>
-        {quotes.map((q) => (
-          <blockquote key={q.who} className="tp-dusk__note" style={{ maxWidth: 'none', rotate: '0deg' }}>
-            <p className="font-plush-text" style={{ fontSize: '1.2rem', lineHeight: 1.5 }}>"{q.q}"</p>
-            <footer className="font-scrawl" style={{ marginTop: '0.6rem', color: 'var(--color-toffee-ink)' }}>{q.who}</footer>
-          </blockquote>
-        ))}
-      </div>
-
-      <div className="gutter" style={{ maxWidth: '104rem', margin: '4rem auto 0' }}>
-        <ul className="tp-photowall__prints" style={{ display: 'grid', gap: '2rem 1.5rem' }}>
-          {polaroids.map((cap, i) => (
-            <li key={cap}>
-              <div className="tp-polaroid" style={{ '--tilt': `${TILT[i]}deg`, '--tape': TAPE[i] }}>
-                {TAPES[i].map((t) => <span key={t} aria-hidden="true" className={`tp-tape tp-tape--${t}`} />)}
-                <span className="tp-polaroid__photo">
-                  <Photo src={photos[i % photos.length]} label={cap} />
-                </span>
-                <span className="tp-polaroid__caption font-scrawl">{cap}</span>
+      {/* Polaroid Wall Grid */}
+      <div className="gutter">
+        <div className="tp-polaroid-wall">
+          {polaroidMoments.map((item, idx) => (
+            <article
+              key={item.caption}
+              className="tp-polaroid-card"
+              style={{ transform: `rotate(${item.tilt}deg)` }}
+            >
+              <span
+                className="tp-washi-tape"
+                style={{ backgroundColor: item.tape }}
+                aria-hidden="true"
+              />
+              <div className="tp-polaroid-frame">
+                <img src={item.img} alt={item.caption} loading="lazy" />
               </div>
-            </li>
+              <span className="font-scrawl tp-polaroid-caption">
+                {item.caption} {item.emoji}
+              </span>
+            </article>
           ))}
-        </ul>
+        </div>
+
+        {/* Bottom Mascot Transition */}
+        <div className="tp-families-mascot-row">
+          <div className="tp-families-mascot-pup">
+            <Mascot pose="sit" />
+          </div>
+          <p className="font-scrawl tp-families-bottom-quote">
+            every one of them was a Teddy Pup once
+          </p>
+        </div>
       </div>
     </div>
   )

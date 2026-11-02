@@ -51,16 +51,6 @@ export default function CurtainLoader() {
           <div className="tp-curtain__runner">
             <Mascot pose="walk" facing="right" />
           </div>
-          <div className="tp-curtain__prints">
-            {[...Array(6)].map((_, i) => (
-              <span key={i} className="tp-curtain__print" style={{ left: `${i * 18 + 10}%`, animationDelay: `${i * 0.16}s` }}>
-                <svg viewBox="0 0 40 40" width="16" height="16" fill="currentColor">
-                  <ellipse cx="20" cy="27" rx="9" ry="7.5" />
-                  <circle cx="9" cy="17" r="4" /><circle cx="16" cy="10" r="4" /><circle cx="24" cy="10" r="4" /><circle cx="31" cy="17" r="4" />
-                </svg>
-              </span>
-            ))}
-          </div>
           <p className="tp-curtain__note font-scrawl">every puppy is family</p>
         </div>
 
@@ -78,3 +68,4 @@ export default function CurtainLoader() {
     </div>
   )
 }
+
